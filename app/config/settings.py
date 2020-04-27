@@ -1,0 +1,8 @@
+TOKEN_EXPIRATION = 7200
+
+DEBUG = True
+
+FLASK_APP = 'run.py'
+NAME = "flask_template"
+VERSION = "0.1"
+MAX_CONTENT_LENGTH = 100 * 1024 * 1024  # 100M
