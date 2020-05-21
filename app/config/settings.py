@@ -1,7 +1,6 @@
 TOKEN_EXPIRATION = 7200
 
 DEBUG = True
-
 FLASK_APP = 'run.py'
 NAME = "flask_template"
 VERSION = "0.1"

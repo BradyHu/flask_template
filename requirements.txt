@@ -1,1 +1,4 @@
-flask
+flask~=1.1.1
+
+celery~=4.4.2
+mongoengine~=0.19.1

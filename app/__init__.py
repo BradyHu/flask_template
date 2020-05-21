@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
+from app.celery import make_celery
+from .config import settings
 
 def register_blueprints(app):
     """
@@ -15,14 +17,16 @@ def register_plugin(app):
     CORS(app)
     from app.models.base import db
     db.init_app(app)
-    with app.app_context():
-        db.create_all(app=app)
+    # with app.app_context():
+    #     db.create_all(app=app)
+
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(settings.NAME)
     app.config.from_object('app.config.settings')  # 明文变量
     app.config.from_object("app.config.secure")  # 密文变量
     register_blueprints(app)
     register_plugin(app)
+    make_celery(app)
     return app
